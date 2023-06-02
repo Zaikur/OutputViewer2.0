@@ -105,8 +105,11 @@ namespace OutputViewer2._0
                 //If rowcount is greater than maxRows
                 if (cutList.Count > maxRows)
                 {
-                    //Delete object at index[0]
-                    this.Invoke(new Action(() => { cutList.RemoveAt(0); }));
+                    while (cutList.Count > maxRows)
+                    {
+                        //Delete object at index[0]
+                        this.Invoke(new Action(() => { cutList.RemoveAt(0); }));
+                    }
                 }
                 this.Invoke(new Action(() => { cutList.Add(cut); }));
 
